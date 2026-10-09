@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { navLinks, site } from "../data/portfolio";
 import { GitHubIcon } from "./ui/Icons";
 import { Pill } from "./ui/Pill";
-
+import logo from "../../../public/WDC.png"
 /** Barre de navigation flottante + menu plein écran sur mobile. */
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,9 +20,9 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-3 top-2.5 z-50 grid h-16 grid-cols-[1fr_auto] items-center rounded-full border border-ink/10 bg-paper/90 py-2 pl-6 pr-2.5 backdrop-blur-xl sm:inset-x-6 sm:top-4 md:grid-cols-[1fr_auto_1fr]">
+      <header className="fixed inset-x-3 top-2.5 z-50 grid h-16 grid-cols-[1fr_auto] items-center rounded-full border border-black/10 bg-paper/90 py-2 pl-6 pr-2.5 backdrop-blur-xl sm:inset-x-6 sm:top-4 md:grid-cols-[1fr_auto_1fr]">
         <a href="#top" aria-label={`${site.name} home`} className="flex h-7 w-[54px] items-center">
-          <Image src="/wilfried-dc-logo.png" alt={site.name} width={108} height={56} className="h-full w-full object-contain object-left" />
+          <Image src={logo} alt={site.name} width={108} height={56} className="h-full w-full object-contain object-left" />
         </a>
 
         <nav aria-label="Primary navigation" className="hidden gap-8 md:flex">
@@ -43,7 +43,7 @@ export function Navbar() {
             target="_blank"
             rel="noreferrer"
             aria-label={`${site.name} on GitHub`}
-            className="hidden size-11 place-items-center rounded-full border border-line transition-colors duration-200 hover:bg-ink hover:text-paper sm:grid"
+            className="hidden size-11 place-items-center rounded-full border border-line border-black/10 transition-colors duration-200 hover:bg-ink hover:text-paper sm:grid"
           >
             <GitHubIcon />
           </a>
@@ -57,7 +57,7 @@ export function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="relative size-11 rounded-full bg-ink md:hidden"
+            className="relative size-11 rounded-full bg-black md:hidden"
           >
             <span className={`absolute left-[13px] h-px w-[18px] bg-white transition-all duration-300 ${menuOpen ? "top-[22px] rotate-45" : "top-[18px]"}`} />
             <span className={`absolute left-[13px] h-px w-[18px] bg-white transition-all duration-300 ${menuOpen ? "top-[22px] -rotate-45" : "top-[25px]"}`} />
@@ -77,7 +77,7 @@ export function Navbar() {
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={() => setMenuOpen(false)}
-              className="border-b border-ink/20 py-3.5 text-[clamp(48px,13vw,80px)] leading-none tracking-[-0.055em]"
+              className="border-b border-black/20 py-3.5 text-[clamp(48px,13vw,80px)] leading-none tracking-[-0.055em]"
             >
               <small className="mr-3.5 text-[11px] tracking-normal">0{index + 1}</small>
               {item}
@@ -85,7 +85,7 @@ export function Navbar() {
           ))}
         </nav>
         <div className="flex flex-col justify-between gap-5 text-xs sm:flex-row">
-          <span>Available for freelance & full-time</span>
+        
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </div>
       </div>
